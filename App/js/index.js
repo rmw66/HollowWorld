@@ -19,7 +19,29 @@ xui.Class('App', 'xui.Module',{
         iniComponents : function(){
             // [[Code created by CrossUI RAD Studio
             var host=this, children=[], append=function(child){children.push(child.get(0));};
-
+            
+            append(
+                xui.create("xui.UI.HTMLButton")
+                .setHost(host,"xui_ui_htmlbutton3")
+                .setLeft("5em")
+                .setTop("3.3333333333333335em")
+                .setCaption("Hello World")
+                .onClick([
+                    {
+                        "desc":"Action 1",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[
+                            undefined,
+                            "Hello, World!"
+                        ],
+                        "method":"pop",
+                        "event":1
+                    },
+                    "_xui_ui_htmlbutton3_onclick"
+                ])
+            );
+            
             return children;
             // ]]Code created by CrossUI RAD Studio
         },
@@ -28,6 +50,16 @@ xui.Class('App', 'xui.Module',{
         customAppend : function(parent, subId, left, top){
             // "return false" will cause all the internal UI controls will be added to the parent panel
             return false;
+        },
+        /**
+         * Fired when user click it
+         * @method onClick [xui.UI.HTMLButton event]
+         * @param {xui.UIProfile.} profile  The current control's profile object
+         * @param {Event} e , Dom event object
+         * @param {Element.xui} src  id or Dom Element
+        */
+        _xui_ui_htmlbutton3_onclick:function(profile, e, src){
+            var ns = this, uictrl = profile.boxing();
         }
         /*,
         // To determine how properties affects this module
